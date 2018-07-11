@@ -12,5 +12,6 @@
 {% endif %}
     <p>Links on this site:</p>
     <a href="{% url 'polls:index' %}">Polls App</a></br>
-    <a href="{% url 'admin:index' %}">Admin Site</a>
+    <a href="{% url 'admin:index' %}">Admin Site</a></br>
+    <a href="{% url 'secret' %}">Secret (requires login to proceed)</a>
 {% endblock %}
