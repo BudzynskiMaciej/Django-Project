@@ -15,6 +15,10 @@ For download u can use one of the following methods:
 ## Running project
 
 Make sure you have installed and activated [virtualenv].
+After that install project requirements. To do this run following command in project directory:
+```sh
+pip install -r requirements.txt
+```
 Then u need to migrate database using command:
 ```sh
 python manage.py migrate
