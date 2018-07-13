@@ -1,6 +1,6 @@
 # Django Project
 
-This is Polling app written in [Python] and [Django]. It uses [SQLite] as database engine. 
+This is Polling app written in [Python] v3.6.5 and [Django]. It uses [SQLite] as database engine. 
 
 ## Download
 

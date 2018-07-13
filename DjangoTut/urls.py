@@ -17,13 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
 from polls.views import UserView, signup
+from django.conf.urls.i18n import i18n_patterns
+from django.conf import settings
+from django.conf.urls.static import static
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('signup/', signup, name='signup'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/<int:pk>/', UserView.as_view(), name='user_view'),
-    path('secret/', TemplateView.as_view(template_name='accounts/secret.html'), name='secret')
-]
+    path('secret/', TemplateView.as_view(template_name='accounts/secret.html'), name='secret'),
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

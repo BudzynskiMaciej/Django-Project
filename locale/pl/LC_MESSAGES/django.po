@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-13 13:09+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: DjangoTut/settings.py:119
+msgid "English"
+msgstr "Angielski"
+
+#: DjangoTut/settings.py:120
+msgid "Polish"
+msgstr "Polski"
+
+#: polls/forms.py:13
+msgid "Male"
+msgstr "Mężczyzna"
+
+#: polls/forms.py:13
+msgid "Female"
+msgstr "Kobieta"
+
+#: polls/forms.py:14
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+#: polls/forms.py:15
+msgid "First Name"
+msgstr "Imię"
+
+#: polls/forms.py:16
+msgid "Last Name"
+msgstr "Nazwisko"
+
+#: polls/forms.py:17
+msgid "Email"
+msgstr "Adres Email"
+
+#: polls/forms.py:18
+msgid "Password"
+msgstr "Hasło"
+
+#: polls/forms.py:19
+msgid "Confirm Password"
+msgstr "Potwierdź hasło"
+
+#: polls/forms.py:20
+msgid "Birthdate"
+msgstr "Data Urodzin"
+
+#: polls/forms.py:21
+msgid "Sex"
+msgstr "Płeć"
+
+#: polls/forms.py:22
+msgid "Profile Picture"
+msgstr "Zdjęcie profilowe"
+
+#: polls/forms.py:28
+msgid "Username already exists"
+msgstr "Użytkownik już istnieje"
+
+#: polls/forms.py:35
+msgid "Email already exists"
+msgstr "Adres email zajęty"
+
+#: polls/forms.py:43
+msgid "Password don't match"
+msgstr "Hasła się nie zgadzają"
+
+#: polls/views.py:57
+msgid "You didn't select a choice."
+msgstr "Nie dokonałeś wyboru"
+
+#: polls/views.py:75
+msgid "Account created successfully"
+msgstr "Pomyślnie utworzono konto"
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr "Administracja django"
+
+#: templates/index.html:7
+msgid "Home"
+msgstr "Strona domowa"
+
+#: templates/index.html:12
+msgid "Polls App"
+msgstr "Apka do głosów"
+
+#: templates/index.html:13
+msgid "Admin Site"
+msgstr "Strona Admina"
+
+#: templates/index.html:14
+msgid "Secret (requires login to proceed)"
+msgstr "Sekret (wymaga zalogowania)"
+
+#: templates/index.html:16
+msgid "Hi"
+msgstr "Witaj"
+
+#: templates/index.html:18
+msgid "Register here"
+msgstr "Zarejestruj się"
+
+#: templates/index.html:22
+msgid "Sign out"
+msgstr "Wyloguj"
+
+#: templates/index.html:24
+msgid "Sign In"
+msgstr "Zaloguj"
