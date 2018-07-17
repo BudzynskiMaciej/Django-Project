@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 10:02+0200\n"
+"POT-Creation-Date: 2018-07-17 10:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,59 +56,65 @@ msgstr "Mężczyzna"
 msgid "Female"
 msgstr "Kobieta"
 
-#: core/templates/accounts/detail.html:18
+#: core/templates/accounts/detail.html:15
 msgid "Name:"
 msgstr "Imię:"
 
-#: core/templates/accounts/detail.html:22
+#: core/templates/accounts/detail.html:19
 msgid "Birthday:"
 msgstr "Data urodzin:"
 
-#: core/templates/accounts/detail.html:26
+#: core/templates/accounts/detail.html:23
 msgid "Sex:"
 msgstr "Płeć:"
 
-#: core/templates/accounts/detail.html:29
+#: core/templates/accounts/detail.html:26
 msgid "Men"
 msgstr "Mężczyzna"
 
-#: core/templates/accounts/detail.html:31
+#: core/templates/accounts/detail.html:28
 msgid "Woman"
 msgstr "Kobieta"
 
-#: core/templates/accounts/secret.html:7
+#: core/templates/accounts/secret.html:4
 msgid "Secret Page"
 msgstr "Sekretna Strona"
 
-#: core/templates/accounts/secret.html:10
+#: core/templates/accounts/secret.html:7
 msgid "Congratulations"
 msgstr "Gratulacje"
 
-#: core/templates/accounts/secret.html:11
+#: core/templates/accounts/secret.html:8
 msgid "U have successfully logged in."
 msgstr "Udało Ci się pomyślnie zalogować."
 
-#: core/templates/accounts/secret.html:13
+#: core/templates/accounts/secret.html:10
 msgid "Oops"
 msgstr "Ups"
 
-#: core/templates/accounts/secret.html:14
+#: core/templates/accounts/secret.html:11
 msgid "You forgot to login."
 msgstr "Zapomniałeś się zalogować."
 
-#: core/templates/accounts/secret.html:14
+#: core/templates/accounts/secret.html:11
 msgid "Click here to login."
 msgstr "Kliknij tu aby się zalogować."
 
-#: core/templates/accounts/signup.html:8 core/templates/accounts/signup.html:19
+#: core/templates/accounts/signup.html:5
 msgid "Sign up"
 msgstr "Zarejestruj"
 
-#: core/templates/registration/login.html:8
+#: core/templates/accounts/signup.html:16
+#: core/templates/accounts/signup.html:75
+msgid "Sign Up"
+msgstr "Zarejestruj"
+
+#: core/templates/registration/login.html:5
 msgid "Login Page"
 msgstr "Logowanie"
 
-#: core/templates/registration/login.html:10
+#: core/templates/registration/login.html:7
+#: core/templates/registration/login.html:19
 msgid "Login"
 msgstr "Zaloguj"
 
@@ -124,34 +130,34 @@ msgstr "Wystąpiły problemy z formularzem."
 msgid "You didn't select a choice."
 msgstr "Nie dokonałeś wyboru"
 
-#: templates/index.html:7
-msgid "Home"
-msgstr "Strona domowa"
-
-#: templates/index.html:12
+#: templates/base.html:18
 msgid "Polls App"
 msgstr "Apka do głosowania"
 
-#: templates/index.html:13
+#: templates/base.html:19
 msgid "Admin Site"
 msgstr "Strona Administracyjna"
 
-#: templates/index.html:14
+#: templates/base.html:20
 msgid "Secret (requires login to proceed)"
 msgstr "Sekret (wymaga zalogowania się)"
 
-#: templates/index.html:16
+#: templates/base.html:22
 msgid "Hi"
 msgstr "Witaj"
 
-#: templates/index.html:18
+#: templates/base.html:24
 msgid "Register here"
 msgstr "Zarejestruj się"
 
-#: templates/index.html:22
+#: templates/base.html:28
 msgid "Sign out"
 msgstr "Wyloguj"
 
-#: templates/index.html:24
+#: templates/base.html:30
 msgid "Sign In"
 msgstr "Zaloguj"
+
+#: templates/index.html:4
+msgid "Home"
+msgstr "Strona domowa"

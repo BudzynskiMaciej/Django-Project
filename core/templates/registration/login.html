@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
-{% get_available_languages as LANGUAGES %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
 
 {% block title %}{% trans "Login Page" %}{% endblock %}
 {% block content %}
@@ -19,6 +16,6 @@
             {% endfor %}
         </div>
     {% endfor %}
-  <div class="mx-auto"><button type="submit" class="btn btn-primary col align-self-center">Login</button></div>
+  <div class="mx-auto"><button type="submit" class="btn btn-primary col align-self-center">{% trans "Login" %}</button></div>
 </form>
 {% endblock %}

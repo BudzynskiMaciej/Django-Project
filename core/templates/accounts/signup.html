@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
-{% get_available_languages as LANGUAGES %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
 
 {% block title %}{% trans "Sign up" %}{% endblock %}
 {% block content %}
@@ -16,66 +13,66 @@
             {% endfor %}
         </ul>
     {% endif %}
-    <div class="mx-auto" style="width: 200px;"><h2>{% trans "Sign up" %}</h2></div>
+    <div class="mx-auto" style="width: 200px;"><h2>{% trans "Sign Up" %}</h2></div>
     <form  class="form-signup" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.username.label }}</label></div>
+                <div class="col-1"><label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label></div>
                 <div class="col-11">{% render_field form.username class="form-control" placeholder=form.username.label %}</div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.first_name.label }}</label></div>
+                <div class="col-1"><label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label></div>
                 <div class="col-11">{% render_field form.first_name class="form-control" placeholder=form.first_name.label %}</div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.last_name.label }}</label></div>
+                <div class="col-1"><label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label></div>
                 <div class="col-11">{% render_field form.last_name class="form-control" placeholder=form.last_name.label %}</div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.email.label }}</label></div>
+                <div class="col-1"><label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label></div>
                 <div class="col-11">{% render_field form.email class="form-control" placeholder=form.email.label %}</div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.password.label }}</label></div>
+                <div class="col-1"><label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label></div>
                 <div class="col-11">{% render_field form.password type="password" class="form-control" placeholder=form.password.label %}</div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.confirm_password.label }}</label></div>
+                <div class="col-1"><label for="{{ form.confirm_password.id_for_label }}">{{ form.confirm_password.label }}</label></div>
                 <div class="col-11">{% render_field form.confirm_password class="form-control" placeholder=form.confirm_password.label %}</div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.born_date.label }}:</label></div>
+                <div class="col-1"><label for="{{ form.born_date.id_for_label }}">{{ form.born_date.label }}:</label></div>
                 <div class="col-11">{% render_field form.born_date class="form-control" placeholder=form.born_date.label %}</div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.sex.label }}</label></div>
+                <div class="col-1"><label for="{{ form.sex.id_for_label }}">{{ form.sex.label }}</label></div>
                 <div class="col-11">{% render_field form.sex class="form-control" placeholder=form.sex.label %}</div>
             </div>
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-1"><label for="{{ form.id_for_label }}">{{ form.profile_pic.label }}</label></div>
+                <div class="col-1"><label for="{{ form.profile_pic.id_for_label }}">{{ form.profile_pic.label }}</label></div>
                 <div class="col-11">{% render_field form.profile_pic class="form-control" placeholder=form.profile_pic.label %}</div>
             </div>
         </div>
         <div class="row">
             <div class="mx-auto">
-                <input type="submit" name="submit" class="btn btn-primary" value="Sign Up" />
+                <input type="submit" name="submit" class="btn btn-primary col align-self-center" value="{% trans "Sign Up" %}" />
             </div>
         </div>
     </form>
