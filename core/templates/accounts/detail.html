@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ user.username }} detail{% endblock %}
+{% block content %}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">{{ user.username }}</th>
+                <th scope="col">{{ user.email }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">{% trans "Name:" %}</th>
+                <td>{{ user.first_name|capfirst }} {{ user.last_name|capfirst }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Birthday:" %}</th>
+                <td>{{ user.born_date }}</td>
+            </tr>
+            <tr>
+                <th scope="row">{% trans "Sex:" %}</th>
+                <td>
+                    {% if user.sex == 'M' %}
+                        {% trans "Men" %}
+                    {% else %}
+                        {% trans "Woman" %}
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col">
+            {% if user.profile_pic %}
+                <p><img class="img-fluid rounded mx-auto d-block" src="{{ user.profile_pic.url }}" alt="Profile Pic"></p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

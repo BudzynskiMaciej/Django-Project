@@ -2,15 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .models import Question, Choice
 from django.urls import reverse
-from django.contrib.auth.models import User
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
-
-
-class UserView(LoginRequiredMixin, DetailView):
-    model = User
-    template_name = 'accounts/detail.html'
+from django.utils.translation import ugettext_lazy as _
 
 
 class IndexView(ListView):
@@ -51,7 +45,7 @@ def vote(request, question_id):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
             'question': question,
-            'error_message': "You didn't select a choice.",
+            'error_message': _("You didn't select a choice."),
         })
     else:
         selected_choice.votes += 1

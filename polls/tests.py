@@ -1,11 +1,9 @@
 import datetime
 
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.utils import timezone
 from django.shortcuts import reverse
-from .models import Question, Choice
-from django.contrib.auth.models import User
-
+from .models import Question
 
 
 def create_question(question_text, days):
@@ -126,20 +124,3 @@ class QuestionDetailViewTests(TestCase):
         url = reverse('polls:detail', args=(past_question.id,))
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
-
-
-class UserViewTests(TestCase):
-    def setUp(self):
-        User.objects.create_user('john', 'john@doe.com', 'testpasswd')
-        User.objects.create_user('jane', 'jane@doe.com', 'testpasswd')
-
-    def test_user_login(self):
-        """
-        Logged user display his name on secret page.
-        """
-        c = Client()
-        c.login(username='john', password='testpasswd')
-        url = reverse('secret')
-        response = c.get(url)
-        self.assertContains(response, 'john')
-
