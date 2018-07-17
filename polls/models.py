@@ -1,7 +1,6 @@
 import datetime
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import AbstractUser
 
 
 class Question(models.Model):
@@ -27,15 +26,3 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
-
-
-class UserProfile(AbstractUser):
-    SEX = ((1, 'Male'), (2, 'Female'))
-    born_date = models.DateField(null=False)
-    sex = models.SmallIntegerField(choices=SEX, null=False)
-    profile_pic = models.ImageField(upload_to='profile_pics', blank=True, null=True)
-
-    REQUIRED_FIELDS = ('email', 'born_date', 'sex')
-
-    def __str__(self):
-        return self.username

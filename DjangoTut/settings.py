@@ -44,8 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
+    'core.apps.CoreConfig',
+    'youtube.apps.YoutubeConfig',
     'polls.apps.PollsConfig',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -142,10 +146,10 @@ LOGOUT_REDIRECT_URL = 'home'
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
-    "polls.auth.AuthenticationEmailBackend",
+    "core.middleware.auth.AuthenticationEmailBackend",
 )
 
-AUTH_USER_MODEL = 'polls.UserProfile'
+AUTH_USER_MODEL = 'core.User'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

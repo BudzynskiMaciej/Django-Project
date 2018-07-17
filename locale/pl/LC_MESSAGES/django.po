@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-13 13:09+0200\n"
+"POT-Creation-Date: 2018-07-17 10:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,81 +20,109 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: DjangoTut/settings.py:119
+#: DjangoTut/settings.py:123
 msgid "English"
 msgstr "Angielski"
 
-#: DjangoTut/settings.py:120
+#: DjangoTut/settings.py:124
 msgid "Polish"
 msgstr "Polski"
 
-#: polls/forms.py:13
-msgid "Male"
-msgstr "Mężczyzna"
-
-#: polls/forms.py:13
-msgid "Female"
-msgstr "Kobieta"
-
-#: polls/forms.py:14
-msgid "Username"
-msgstr "Nazwa użytkownika"
-
-#: polls/forms.py:15
-msgid "First Name"
-msgstr "Imię"
-
-#: polls/forms.py:16
-msgid "Last Name"
-msgstr "Nazwisko"
-
-#: polls/forms.py:17
-msgid "Email"
-msgstr "Adres Email"
-
-#: polls/forms.py:18
-msgid "Password"
-msgstr "Hasło"
-
-#: polls/forms.py:19
+#: core/forms.py:11
 msgid "Confirm Password"
 msgstr "Potwierdź hasło"
 
-#: polls/forms.py:20
-msgid "Birthdate"
-msgstr "Data Urodzin"
+#: core/forms.py:12
+msgid "Birthday"
+msgstr "Data urodzin"
 
-#: polls/forms.py:21
+#: core/forms.py:16
+msgid "Profile Image"
+msgstr "Zdjęcie profilowe"
+
+#: core/forms.py:16
 msgid "Sex"
 msgstr "Płeć"
 
-#: polls/forms.py:22
-msgid "Profile Picture"
-msgstr "Zdjęcie profilowe"
-
-#: polls/forms.py:28
-msgid "Username already exists"
-msgstr "Użytkownik już istnieje"
-
-#: polls/forms.py:35
-msgid "Email already exists"
-msgstr "Adres email zajęty"
-
-#: polls/forms.py:43
+#: core/forms.py:24
 msgid "Password don't match"
 msgstr "Hasła się nie zgadzają"
 
-#: polls/views.py:57
-msgid "You didn't select a choice."
-msgstr "Nie dokonałeś wyboru"
+#: core/models.py:12
+msgid "Male"
+msgstr "Mężczyzna"
 
-#: polls/views.py:75
+#: core/models.py:13
+msgid "Female"
+msgstr "Kobieta"
+
+#: core/templates/accounts/detail.html:18
+msgid "Name:"
+msgstr "Imię:"
+
+#: core/templates/accounts/detail.html:22
+msgid "Birthday:"
+msgstr "Data urodzin:"
+
+#: core/templates/accounts/detail.html:26
+msgid "Sex:"
+msgstr "Płeć:"
+
+#: core/templates/accounts/detail.html:29
+msgid "Men"
+msgstr "Mężczyzna"
+
+#: core/templates/accounts/detail.html:31
+msgid "Woman"
+msgstr "Kobieta"
+
+#: core/templates/accounts/secret.html:7
+msgid "Secret Page"
+msgstr "Sekretna Strona"
+
+#: core/templates/accounts/secret.html:10
+msgid "Congratulations"
+msgstr "Gratulacje"
+
+#: core/templates/accounts/secret.html:11
+msgid "U have successfully logged in."
+msgstr "Udało Ci się pomyślnie zalogować."
+
+#: core/templates/accounts/secret.html:13
+msgid "Oops"
+msgstr "Ups"
+
+#: core/templates/accounts/secret.html:14
+msgid "You forgot to login."
+msgstr "Zapomniałeś się zalogować."
+
+#: core/templates/accounts/secret.html:14
+msgid "Click here to login."
+msgstr "Kliknij tu aby się zalogować."
+
+#: core/templates/accounts/signup.html:8 core/templates/accounts/signup.html:19
+msgid "Sign up"
+msgstr "Zarejestruj"
+
+#: core/templates/registration/login.html:8
+msgid "Login Page"
+msgstr "Logowanie"
+
+#: core/templates/registration/login.html:10
+msgid "Login"
+msgstr "Zaloguj"
+
+#: core/views.py:23
 msgid "Account created successfully"
 msgstr "Pomyślnie utworzono konto"
 
-#: templates/admin/base_site.html:3
-msgid "Django site admin"
-msgstr "Administracja django"
+#: core/views.py:27
+msgid "There are some problems with form."
+msgstr "Wystąpiły problemy z formularzem."
+
+#: polls/views.py:48
+msgid "You didn't select a choice."
+msgstr "Nie dokonałeś wyboru"
 
 #: templates/index.html:7
 msgid "Home"
@@ -102,15 +130,15 @@ msgstr "Strona domowa"
 
 #: templates/index.html:12
 msgid "Polls App"
-msgstr "Apka do głosów"
+msgstr "Apka do głosowania"
 
 #: templates/index.html:13
 msgid "Admin Site"
-msgstr "Strona Admina"
+msgstr "Strona Administracyjna"
 
 #: templates/index.html:14
 msgid "Secret (requires login to proceed)"
-msgstr "Sekret (wymaga zalogowania)"
+msgstr "Sekret (wymaga zalogowania się)"
 
 #: templates/index.html:16
 msgid "Hi"

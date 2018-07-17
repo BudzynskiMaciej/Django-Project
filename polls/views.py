@@ -1,19 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from .models import Question, Choice, UserProfile
+from .models import Question, Choice
 from django.urls import reverse
-from django.contrib.auth import login, authenticate
-from .forms import UserCreateForm
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import messages
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-
-
-class UserView(LoginRequiredMixin, DetailView):
-    model = UserProfile
-    template_name = 'accounts/detail.html'
 
 
 class IndexView(ListView):
@@ -63,19 +54,3 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = UserCreateForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            messages.success(request, _('Account created successfully'))
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserCreateForm()
-    return render(request, 'accounts/signup.html', {'form': form})
