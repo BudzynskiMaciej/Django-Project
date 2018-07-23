@@ -153,3 +153,5 @@ AUTH_USER_MODEL = 'core.User'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+YOUTUBE_API_ACCESS_KEY = 'AIzaSyCaOCTj7oMFStONx1hHO60Gejfc3cD2xH4'
