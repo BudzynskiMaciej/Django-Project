@@ -1,38 +1,50 @@
 import requests
 from .models import Video
-from core.utils import db_table_exists
-from django.utils import timezone
-from core.models import User
+from DjangoTut.settings import YOUTUBE_API_ACCESS_KEY
 
 
 class YoutubeService:
+    API_KEY = None
+    METHOD_GET = 'get'
+    METHOD_POST = 'post'
+    METHOD_DELETE = 'delete'
 
-    @staticmethod
-    def get_user_channel_id(username, api_key):
-        r = requests.get('https://www.googleapis.com/youtube/v3/channels?part=id&forUsername=' + username
-                         + '&key=' + api_key)
-        r = r.json()
-        if not r['items']:
-            return None
-        return r['items'][0]['id']
+    def __init__(self):
+        self.BASE_API_URL = "https://www.googleapis.com/youtube/v3/"
 
-    @staticmethod
-    def get_my_videos(username, api_key, max_results=15):
-        if not(db_table_exists('youtube_video')):
-            return None
+        self.api_key = YOUTUBE_API_ACCESS_KEY
+        if self.api_key is None:
+            print("Error Reading API_KEY, Service will not work")
+
+    def _make_request(self, resource, params, method='get'):
+        url = self.BASE_API_URL + resource
+        if method == YoutubeService.METHOD_GET:
+            request = requests.get(url, params)
+        elif method == YoutubeService.METHOD_POST:
+            request = requests.post(url, params)
+        elif method == YoutubeService.METHOD_DELETE:
+            request = requests.delete(url)
+        return request.json()
+
+    def get_my_videos(self, username, max_results=15):
         my_videos = []
-        if not User.is_authenticated:
-            return None
-        r = requests.get('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername=' +
-                         username + '&key=' + api_key)
-        r = r.json()
-        if not r['items']:
-            return None
-        my_uploaded_playlist = r['items'][0]['contentDetails']['relatedPlaylists']['uploads']
-        r = requests.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=' +
-                         str(max_results) + '&playlistId=' + my_uploaded_playlist + '&key=' + api_key)
-        r = r.json()
-        for item in r['items']:
+        params = {
+            'part': 'contentDetails',
+            'forUsername': username,
+            'key': self.api_key,
+        }
+        request = self._make_request('channels', params)
+        if not request['items']:
+            return my_videos
+        my_uploaded_playlist = request['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+        params = {
+            'part': 'snippet',
+            'maxResults': str(max_results),
+            'playlistId': my_uploaded_playlist,
+            'key': self.api_key,
+        }
+        request = self._make_request('playlistItems', params)
+        for item in request['items']:
             youtube_id = item['snippet']['resourceId']['videoId']
             published_at = item['snippet']['publishedAt']
             channel_id = item['snippet']['channelId']
@@ -40,28 +52,22 @@ class YoutubeService:
             description = item['snippet']['description']
             thumbnail = item['snippet']['thumbnails']['medium']['url']
             channel_title = item['snippet']['channelTitle']
-            if Video.objects.filter(youtube_id=youtube_id, title=title).exists():
-                continue
-            video = Video.objects.create(youtube_id=youtube_id, published_at=published_at, channel_id=channel_id,
-                                         title=title, description=description, thumbnail=thumbnail,
-                                         channel_title=channel_title)
+            video = Video(youtube_id=youtube_id, published_at=published_at, channel_id=channel_id, title=title,
+                          description=description, thumbnail=thumbnail, channel_title=channel_title)
             my_videos.append(video)
         return my_videos
-        pass
 
-    @staticmethod
-    def get_most_popular_videos(max_results, region_code, api_key):
-        if not(db_table_exists('youtube_video')):
-            return None
+    def get_most_popular_videos(self, max_results, region_code):
         most_popular_videos = []
-        r = requests.get('https://www.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&chart=mostPopular&maxResults='
-                         + str(max_results) + '&regionCode=' + region_code + '&key=' + api_key)
-        r = r.json()
-        if Video.objects.all().exists():
-            for video in Video.objects.all():
-                if video.expiration_date == timezone.now():
-                    video.delete()
-        for item in r['items']:
+        params = {
+            'part': 'snippet,statistics',
+            'chart': 'mostPopular',
+            'maxResults': str(max_results),
+            'regionCode': region_code,
+            'key': self.api_key
+        }
+        request = self._make_request('videos', params)
+        for item in request['items']:
             youtube_id = item['id']
             published_at = item['snippet']['publishedAt']
             channel_id = item['snippet']['channelId']
@@ -72,12 +78,13 @@ class YoutubeService:
             view_count = item['statistics']['viewCount']
             like_count = item['statistics']['likeCount']
             dislike_count = item['statistics']['dislikeCount']
-            comment_count = item['statistics']['commentCount']
-            if Video.objects.filter(youtube_id=youtube_id, title=title).exists():
-                continue
-            video = Video.objects.create(youtube_id=youtube_id, published_at=published_at, channel_id=channel_id,
-                                         title=title, description=description, thumbnail=thumbnail,
-                                         channel_title=channel_title, view_count=view_count, like_count=like_count,
-                                         dislike_count=dislike_count, comment_count=comment_count, is_most_viewed=True)
+            if 'commentCount' not in item['statistics']:
+                comment_count = 0
+            else:
+                comment_count = item['statistics']['commentCount']
+            video = Video(youtube_id=youtube_id, published_at=published_at, channel_id=channel_id, title=title,
+                          description=description, thumbnail=thumbnail, channel_title=channel_title,
+                          view_count=view_count, like_count=like_count, dislike_count=dislike_count,
+                          comment_count=comment_count, is_most_viewed=True)
             most_popular_videos.append(video)
         return most_popular_videos

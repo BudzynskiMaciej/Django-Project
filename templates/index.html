@@ -3,7 +3,6 @@
 
 {% block title %} {% trans "Home" %} {% endblock %}
 {% block content %}
-    {% if most_popular_videos %}
           <div class="row">
               {% for video in most_popular_videos %}
                   <div class="col-md-4">
@@ -25,10 +24,11 @@
                           </div>
                       </div>
                   </div>
+              {% empty %}
+                  <h1>{% trans "An Error has occured" %}</h1>
               {% endfor %}
           </div>
-    {% else %}
-        <h1>{% trans "An Error has occured" %}</h1>
-    {% endif %}
-    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
+    {% block body_scripts %}
+        {{ block.super }}
+    {% endblock %}
 {% endblock %}

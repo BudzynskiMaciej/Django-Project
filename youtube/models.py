@@ -21,5 +21,11 @@ class Video(models.Model):
     expiration_date = models.DateTimeField(default=one_day_later_than_now)
     is_most_viewed = models.BooleanField(default=False)
 
+    def change_is_most_viewed(self):
+        if self.is_most_viewed:
+            self.is_most_viewed = False
+        else:
+            self.is_most_viewed = True
+
     def __str__(self):
         return self.channel_title + " - " + self.title

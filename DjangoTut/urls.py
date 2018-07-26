@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 from youtube.views import PopularVideosList
 
 urlpatterns = i18n_patterns(
-    # path('', TemplateView.as_view(template_name='index.html'), name='home'),
     path('', PopularVideosList.as_view(), name='home'),
     path('', include('core.urls'), name='core'),
     path('admin/', admin.site.urls, name='admin'),

@@ -7,8 +7,8 @@ from .models import User
 
 class UserViewTests(TestCase):
     def setUp(self):
-        User.objects.create_user('john', 'john@doe.com', 'testpasswd')
-        User.objects.create_user('jane', 'jane@doe.com', 'testpasswd')
+        User.objects.create_user('john', 'john@doe.com', 'testpasswd', born_date='1994-12-12', sex='M')
+        User.objects.create_user('jane', 'jane@doe.com', 'testpasswd', born_date='1990-05-28', sex='F')
 
     def test_user_login(self):
         """
