@@ -148,7 +148,7 @@ msgstr "Witaj"
 
 #: templates/base.html:23
 msgid "My Videos"
-msgstr ""
+msgstr "Moje Wideo"
 
 #: templates/base.html:25
 msgid "Register here"

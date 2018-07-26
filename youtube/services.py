@@ -5,25 +5,19 @@ from DjangoTut.settings import YOUTUBE_API_ACCESS_KEY
 
 class YoutubeService:
     API_KEY = None
+    BASE_API_URL = "https://www.googleapis.com/youtube/v3/"
     METHOD_GET = 'get'
     METHOD_POST = 'post'
     METHOD_DELETE = 'delete'
 
     def __init__(self):
-        self.BASE_API_URL = "https://www.googleapis.com/youtube/v3/"
-
         self.api_key = YOUTUBE_API_ACCESS_KEY
-        if self.api_key is None:
+        if not self.api_key:
             print("Error Reading API_KEY, Service will not work")
 
-    def _make_request(self, resource, params, method='get'):
+    def _make_request(self, resource, params, method=METHOD_GET):
         url = self.BASE_API_URL + resource
-        if method == YoutubeService.METHOD_GET:
-            request = requests.get(url, params)
-        elif method == YoutubeService.METHOD_POST:
-            request = requests.post(url, params)
-        elif method == YoutubeService.METHOD_DELETE:
-            request = requests.delete(url)
+        request = getattr(requests, method)(url, params)
         return request.json()
 
     def get_my_videos(self, username, max_results=15):
