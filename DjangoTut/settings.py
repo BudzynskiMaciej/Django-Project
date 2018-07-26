@@ -19,6 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "polls/static"),
+    os.path.join(BASE_DIR, "core/static"),
 ]
 
 
@@ -153,3 +154,5 @@ AUTH_USER_MODEL = 'core.User'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+YOUTUBE_API_ACCESS_KEY = os.environ.get('YOUTUBE_API_ACCESS_KEY')

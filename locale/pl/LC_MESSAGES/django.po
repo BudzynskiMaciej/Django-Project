@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 10:33+0000\n"
+"POT-Creation-Date: 2018-07-23 08:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,18 +146,38 @@ msgstr "Sekret (wymaga zalogowania się)"
 msgid "Hi"
 msgstr "Witaj"
 
-#: templates/base.html:24
+#: templates/base.html:23
+msgid "My Videos"
+msgstr "Moje Wideo"
+
+#: templates/base.html:25
 msgid "Register here"
 msgstr "Zarejestruj się"
 
-#: templates/base.html:28
+#: templates/base.html:29
 msgid "Sign out"
 msgstr "Wyloguj"
 
-#: templates/base.html:30
+#: templates/base.html:31
 msgid "Sign In"
 msgstr "Zaloguj"
 
-#: templates/index.html:4
+#: templates/index.html:4 youtube/templates/youtube/myVideosList.html:4
 msgid "Home"
 msgstr "Strona domowa"
+
+#: templates/index.html:16 youtube/templates/youtube/myVideosList.html:16
+msgid "Published at"
+msgstr "Opublikowano"
+
+#: templates/index.html:20 youtube/templates/youtube/myVideosList.html:20
+msgid "View"
+msgstr "Zobacz"
+
+#: templates/index.html:23 youtube/templates/youtube/myVideosList.html:23
+msgid "Comments:"
+msgstr "Komentarze:"
+
+#: templates/index.html:31 youtube/templates/youtube/myVideosList.html:31
+msgid "An Error has occured"
+msgstr "Wystąpił błąd"

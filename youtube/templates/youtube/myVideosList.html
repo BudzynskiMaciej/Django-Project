@@ -4,7 +4,7 @@
 {% block title %} {% trans "Home" %} {% endblock %}
 {% block content %}
           <div class="row">
-              {% for video in most_popular_videos %}
+              {% for video in my_videos %}
                   <div class="col-md-4">
                       <div class="card mb-4 box-shadow">
                           <img class="card-img-top" src="{{ video.thumbnail }}" alt="Video">
