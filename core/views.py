@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.views.generic import DetailView
 from django.utils.translation import ugettext_lazy as _
+from youtube.tasks import fetch_user_videos
 
 # Create your views here.
 
@@ -20,6 +21,7 @@ def signup(request):
         form = UserCreateForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
+            fetch_user_videos.delay(form.cleaned_data['username'])
             messages.success(request, _('Account created successfully'))
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('home')

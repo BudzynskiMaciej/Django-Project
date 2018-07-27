@@ -3,7 +3,6 @@ from django.views import View
 from django.views.generic import ListView, DetailView
 from .models import Video
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
