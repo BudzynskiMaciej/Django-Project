@@ -110,3 +110,5 @@ venv.bak/
 media/
 
 profile_pics/
+
+celerybeat-schedule
